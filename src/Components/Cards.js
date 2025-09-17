@@ -1,8 +1,5 @@
-
-
-import { getProducts } from "../api.js"; 
-
-import { Modal } from "./modal.js"; 
+import { getProducts } from "../api.js";
+import { Modal } from "./Modal.js"; 
 
 export function RenderCards() { 
 
