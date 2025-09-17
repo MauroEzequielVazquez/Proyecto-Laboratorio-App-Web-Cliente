@@ -1,3 +1,3 @@
-import { RenderCards } from "./components/cards.js";
+import { RenderCards } from "./Components/Cards.js";
 
 RenderCards();
