@@ -42,7 +42,6 @@ export function Modal(prod) {
                         ${contador(prod.id)}
                     </div>
                 </div>
-
                 <div class="modal-footer">
                     <button 
                         type="button" 
@@ -69,11 +68,14 @@ export function Modal(prod) {
 
     const btnAddToCart = document.querySelector(`#addToCartBtn-${prod.id}`);
     btnAddToCart.addEventListener("click", () => {
-        prod.qqty = ++document.querySelector(`#Contador-${prod.id}`).textContent;
+        prod.qqty = parseInt(document.querySelector(`#Contador-${prod.id}`).textContent) || 1;
 
         // valido si existe en el localStorage, mediante el metodo creado en Storage.js
         let dataStorage = getFromLocalStorage();
-        let filtered = dataStorage.filter(p => p.id !== prod.id);
+        if (!Array.isArray(dataStorage)) {
+        dataStorage = [];
+        } // si no es un array, lo inicializo como array vacio para evitar que de erro
+        let filtered = dataStorage.filter(p => p && p.id !== prod.id);
         filtered.push(prod);
         setItemTolocalStorage(filtered);
 

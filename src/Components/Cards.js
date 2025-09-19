@@ -5,7 +5,7 @@ export function RenderCards() {
 
   let productList = document.querySelector("#product-list"); 
 
-  console.log(productList); 
+  //console.log(productList); 
 
   getProducts().then((products) => { 
     let template = ""; 
