@@ -1,4 +1,4 @@
-import { getFromLocalStorage, saveToLocalStorage, setItemTolocalStorage } from "../storage/storage.js";
+import { saveToLocalStorage, updateItemLocalStorage } from "../storage/storage.js";
 import { contador } from "./count.js";
 import { addEventListeners } from "./count.js";
 
@@ -68,17 +68,12 @@ export function Modal(prod) {
 
     const btnAddToCart = document.querySelector(`#addToCartBtn-${prod.id}`);
     btnAddToCart.addEventListener("click", () => {
-        prod.qqty = parseInt(document.querySelector(`#Contador-${prod.id}`).textContent) || 1;
-
-        // valido si existe en el localStorage, mediante el metodo creado en Storage.js
-        let dataStorage = getFromLocalStorage();
-        if (!Array.isArray(dataStorage)) {
-        dataStorage = [];
-        } // si no es un array, lo inicializo como array vacio para evitar que de erro
-        let filtered = dataStorage.filter(p => p && p.id !== prod.id);
-        filtered.push(prod);
-        setItemTolocalStorage(filtered);
-
-        // saveToLocalStorage(prod);
-    });
-}
+        let inpcant = document.querySelector(`#Contador-${prod.id}`);
+        let qtty = parseInt(inpcant.textContent);
+        let idx = updateItemLocalStorage(prod.id, qtty);
+        if (idx === -1) {
+            prod.qtty = qtty;
+            saveToLocalStorage(prod);
+        }
+        });
+};

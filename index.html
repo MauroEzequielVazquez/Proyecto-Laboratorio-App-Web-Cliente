@@ -56,6 +56,13 @@
           <li class="nav-item">
             <a class="nav-link disabled" aria-disabled="true">Disabled</a>
           </li>
+          <li>
+            <button class="btn btn-outline-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+              </svg>
+            </button>
+          </li>
         </ul>
 
         <form class="d-flex" role="search">
@@ -70,9 +77,23 @@
       </div>
     </div>
   </nav>
-
-  <!-- Main -->
+    <!-- Main -->
   <main class="container">
+
+    <!-- Offcanvas Cart -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="background-color:grey;">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel" style="color:orange;">Carrito<img style="margin-left: 10px;" src="./img/Rayogrande.svg" alt="Cart" width="100"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <!-- aca inserta el Js Cartcontent.js-->      
+      </div>
+      <div class="offcanvas-footer d-flex justify-content-center align-items-center gap-3 py-3">
+        <button class="btn btn-dark" style="color: rgb(255, 255, 255);">Finalizar Compra</button>
+        <button class="btn btn-close-white" id="vaciarCarrito" style="color: black;">Vaciar Carrito</button>
+      </div>
+    </div>
     <div class="row row-cols-1 row-cols-md-4 g-2 mt-5" id="product-list"></div>
     <div 
       class="modal fade" 

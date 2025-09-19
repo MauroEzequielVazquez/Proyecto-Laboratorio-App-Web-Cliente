@@ -1,0 +1,12 @@
+<svg width="240" height="80" viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo con bordes redondeados -->
+  <rect width="240" height="80" rx="18" fill="#0A0A0A"></rect>
+
+  <!-- Ícono de rayo -->
+  <polygon points="28,14 46,14 36,40 60,40 24,68 36,46 20,46" fill="#FFC83D" stroke="#FFC83D" stroke-width="2"></polygon>
+
+  <!-- Texto E-Volt con tipografías redondeadas -->
+  <text x="78" y="52" font-family="Poppins, Nunito, Rubik, Quicksand, 'Segoe UI Rounded', 'Arial Rounded MT Bold', Arial, Helvetica, sans-serif" font-size="34" font-weight="800" fill="#FFFFFF" letter-spacing="1.5" text-rendering="optimizeLegibility">
+    E-Volt
+  </text>
+</svg>

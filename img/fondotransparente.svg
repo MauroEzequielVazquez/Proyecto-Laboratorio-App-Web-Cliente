@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="60" viewBox="0 0 200 60">
+  <!-- Rayo -->
+  <polygon points="10,5 28,5 18,28 38,28 8,55 20,32 5,32" fill="#FFC83D" stroke="#FFC83D" stroke-width="2"></polygon>
+  
+  <!-- Texto E-Volt con fuente redondeada -->
+  <text x="55" y="40" font-family="Poppins, Nunito, Rubik, Quicksand, 'Segoe UI Rounded', 'Arial Rounded MT Bold', Arial, Helvetica, sans-serif" font-size="28" font-weight="800" fill="#111111" letter-spacing="1.5">
+    E-Volt
+  </text>
+</svg>
