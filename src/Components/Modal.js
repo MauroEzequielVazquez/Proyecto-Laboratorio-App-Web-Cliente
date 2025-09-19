@@ -1,8 +1,6 @@
-<<<<<<< HEAD
+
 import { getFromLocalStorage, saveToLocalStorage, setItemTolocalStorage } from "../storage/storage.js"; 
-=======
-import { getFromLocalStorage, saveToLocalStorage, setItemTolocalStorage } from "./storage/storage.js"; 
->>>>>>> 956ab6e495737521dd31f0e8e9272a262b46cdea
+
 import { contador } from "./count.js"; 
 import { addEventListeners } from "./count.js"; 
 
