@@ -1,4 +1,4 @@
-import { getProducts } from "../api.js";
+import { getProducts } from "../../services/api.js";
 import { Modal } from "./Modal.js"; 
 
 export function RenderCards() { 
