@@ -1,4 +1,5 @@
 import { saveToLocalStorage, updateItemLocalStorage } from "../storage/storage.js";
+import { Cartcontent } from "./Cartcontent.js";
 import { contador } from "./count.js";
 import { addEventListeners } from "./count.js";
 
@@ -75,5 +76,9 @@ export function Modal(prod) {
             prod.qtty = qtty;
             saveToLocalStorage(prod);
         }
+
+        Cartcontent();
+
+
         });
 };
