@@ -1,14 +1,10 @@
 import { getProducts } from "../services/api.js";
 import { Modal } from "./Modal.js"; 
 
-export function RenderCards() { 
+export function RenderCards(products) { 
 
   let productList = document.querySelector("#product-list"); 
-
-  //console.log(productList); 
-
-  getProducts().then((products) => { 
-    let template = ""; 
+  let template = ""; 
 
     products.forEach((p) => { 
       template += ` 
@@ -41,7 +37,6 @@ export function RenderCards() {
       } 
 
     }); 
+  }
+  
 
-  }); 
-
-} 

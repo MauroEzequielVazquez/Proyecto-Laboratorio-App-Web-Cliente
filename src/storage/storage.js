@@ -39,3 +39,9 @@ export function updateItemLocalStorage(itemId, qtty) {    /// evitar re generar 
     return idx;
 }
 
+export function deleteItemLocalStorage(itemId) {
+    let productsStorage = getFromLocalStorage();
+    let newDataStorage = productsStorage.filter((p) => p.id !== itemId);
+    setItemTolocalStorage(newDataStorage);
+}
+

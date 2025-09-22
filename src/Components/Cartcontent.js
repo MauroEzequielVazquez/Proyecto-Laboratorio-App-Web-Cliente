@@ -1,4 +1,6 @@
 import { getFromLocalStorage, setItemTolocalStorage} from "../storage/storage.js";
+import { showAlert } from "./Alertas.js";
+import { deleteItemLocalStorage } from "../storage/storage.js";
 
 export function Cartcontent() {
     let offcanvasbody = document.querySelector('.offcanvas-body');
@@ -14,7 +16,12 @@ export function Cartcontent() {
         return;
     }
 
+    let total = 0
+
     dataStorage.forEach((item) => {
+        let subtotal = item.qtty * item.price;
+        total += subtotal;
+
         template += `
         <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
@@ -33,20 +40,51 @@ export function Cartcontent() {
             </div>
         </div>
         `;
-        offcanvasbody.innerHTML = template;
     });
-    DeleteprodCart(dataStorage);    
-}
+  
+    offcanvasbody.innerHTML = template;
+
+    DeleteprodCart(dataStorage);
+
+    // btn finalizar
+    const btnFinalizar = document.querySelector('#btnfinalizarCompra');
+    if (btnFinalizar) {
+        btnFinalizar.addEventListener('click', () => {
+            let total = 0;
+            dataStorage.forEach(item => {
+                total += item.qtty * item.price;
+            });
+
+            showAlert(`Compra realizada. Total: USD $${total.toFixed(2)}`, 'success');
+
+            // Vaciar el carrito
+            dataStorage.forEach(item => deleteItemLocalStorage(item.id));
+            Cartcontent();
+        });
+    }
+    //btn vaciar
+    const btnVaciar = document.querySelector('#vaciarCarrito');
+    if (btnVaciar) {
+        btnVaciar.addEventListener('click', () => {
+            dataStorage.forEach(item => deleteItemLocalStorage(item.id));
+            Cartcontent();
+            showAlert('Carrito vaciado', 'warning');
+        });
+    }
 
 function DeleteprodCart(productsStorage) {
     productsStorage.forEach((item) => {
         let btnDelete = document.querySelector(`#deleteItem-${item.id}`);
         btnDelete.addEventListener('click', () => {
-            let currentstorage = getFromLocalStorage();
-            let newDataStorage = currentstorage.filter((p) => p.id !== item.id);
-            setItemTolocalStorage(newDataStorage);
-            Cartcontent();
+           deleteItemLocalStorage(item.id);
+           Cartcontent();
+           showAlert('Producto eliminado del carrito', 'danger');
+            
         });
+        
     });
- }
+}
+}
+
+ 
 

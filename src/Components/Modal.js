@@ -2,6 +2,7 @@ import { saveToLocalStorage, updateItemLocalStorage } from "../storage/storage.j
 import { Cartcontent } from "./Cartcontent.js";
 import { contador } from "./count.js";
 import { addEventListeners } from "./count.js";
+import { showAlert } from "./Alertas.js";
 
 export function Modal(prod) {
     const container = document.querySelector("#prodModal");
@@ -76,9 +77,8 @@ export function Modal(prod) {
             prod.qtty = qtty;
             saveToLocalStorage(prod);
         }
-
+        showAlert(`${prod.title} agregado al carrito`, 'dark');
         Cartcontent();
 
-
-        });
+    });
 };
