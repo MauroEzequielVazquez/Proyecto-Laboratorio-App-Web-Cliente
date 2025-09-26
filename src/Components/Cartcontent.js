@@ -41,9 +41,6 @@ export function Cartcontent() {
             </div>
         </div>
         `;
-
-
-
     });
     // Agrego el total al final del template
     template += `
