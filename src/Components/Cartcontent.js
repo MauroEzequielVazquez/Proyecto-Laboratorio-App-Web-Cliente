@@ -15,7 +15,7 @@ export function Cartcontent() {
         `;
         return;
     }
-
+   
     let total = 0
 
     dataStorage.forEach((item) => {
