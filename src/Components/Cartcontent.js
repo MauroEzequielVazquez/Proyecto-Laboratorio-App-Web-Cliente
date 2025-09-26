@@ -9,7 +9,7 @@ export function Cartcontent() {
 
     if (!dataStorage || dataStorage.length === 0) { // si el carrito está vacío borra la ultima card y renderiza con un mensaje. Bootstrap me deja pegada la ultima card del array del LS
         offcanvasbody.innerHTML = `
-            <p class="text-center text-light mt-3">
+            <p class="text-center text-dark mt-3">
                Carrito vacío, por favor seleccione un producto!!!! 🛒
             </p>
         `;
