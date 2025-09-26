@@ -23,24 +23,27 @@ export function Cartcontent() {
         total += subtotal;
 
         template += `
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="${item.image}" class="img-fluid rounded-start" alt="${item.title}">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">${item.title}</h5>
-                      <p class="card-text">Cantidad: ${item.qtty}</p>
-                        <p class="card-text fw-bold">Subtotal: USD $${(subtotal).toFixed(2)}</p>
-                    </div>
+        <div class="card w-100 shadow-sm mb-3 ">
+            <div class="d-flex align-items-center m-3">   
+                <img src="${item.image}" class="img-fluid rounded-start" alt="${item.title}" style="width: 100px; height: 100px; object-fit: contain;">
+            </div>
+                <div class="flex-grow-1 p-2">
+                    <h6 class="card-title mb-1">${item.title}</h6>
+                    <p class="mb-1">Cantidad: ${item.qtty}</p>
+                    <p class="fw-bold mb-1">Subtotal: USD $${(subtotal).toFixed(2)}</p>
                     <div class="d-flex justify-content-between align-items-center">
-                    <small class="text-body-secondary">Precio: USD $${item.price}</small>
-                    <button class="btn-outline-danger border-0" id="deleteItem-${item.id}"><i class="bi bi-trash3"></i></button>
+                        <small class="text-body-secondary">Precio: USD $${item.price}</small>
+                        <button class="btn-outline-danger border-0" id="deleteItem-${item.id}">
+                            <i class="bi bi-trash3"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
         `;
+
+
+
     });
     // Agrego el total al final del template
     template += `
