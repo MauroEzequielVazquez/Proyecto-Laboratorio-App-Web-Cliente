@@ -21,27 +21,20 @@ export function Modal(prod) {
                         aria-label="Close">
                     </button>
                 </div>
-
                 <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-6">
+                    <div class="row">                        
+                        <div class="col-md-6 d-flex justify-content-center align-items-center">
                             <img 
                                 src="${prod.image}" 
                                 class="img-fluid" 
                                 alt="${prod.title}" 
-                                style="height: 300px; width: 259px; object-fit: contain;">
+                                style="max-height: 300px; object-fit: contain;">
+                        </div>                    
+                        <div class="col-md-6 d-flex flex-column justify-content-center">
+                            <p>${prod.description}</p>
+                            <p>Price: USD $${prod.price}</p>
+                            ${contador(prod.id)}
                         </div>
-
-                        <div class="col-md-6 d-flex justify-content-center align-items-center">
-                            <div class="d-flex flex-column gap-3">
-                                <p>${prod.description}</p>
-                                <p style="width: 150px;">
-                                    Price: USD $${prod.price}
-                                </p>
-                            </div>
-                        </div>
-
-                        ${contador(prod.id)}
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -63,22 +56,26 @@ export function Modal(prod) {
         </div>
     `;
 
+    // Mostrar modal con Bootstrap
     const bootstrapModal = new bootstrap.Modal(container);
     bootstrapModal.show();
 
+    // Inicializar contador
     addEventListeners(prod.id, 1);
 
+    // Botón agregar al carrito
     const btnAddToCart = document.querySelector(`#addToCartBtn-${prod.id}`);
     btnAddToCart.addEventListener("click", () => {
         let inpcant = document.querySelector(`#Contador-${prod.id}`);
         let qtty = parseInt(inpcant.textContent);
         let idx = updateItemLocalStorage(prod.id, qtty);
+
         if (idx === -1) {
             prod.qtty = qtty;
             saveToLocalStorage(prod);
         }
+
         showAlert(`${prod.title} agregado al carrito`, 'dark');
         Cartcontent();
-
     });
 };

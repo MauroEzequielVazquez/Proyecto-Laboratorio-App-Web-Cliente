@@ -1,0 +1,16 @@
+/* Mantener fondo negro para el dropdown */
+.navbar .dropdown-menu {
+    background-color: black !important;
+}
+
+/* Estilo de los items en hover */
+.navbar .dropdown-menu .dropdown-item:hover {
+    background-color: rgb(70, 69, 69) !important;
+    color: rgb(255, 255, 255) !important;
+}
+
+/* Estilo de los items al hacer click */
+.navbar .dropdown-menu .dropdown-item:active {
+    background-color: black !important;
+    color: white !important;
+}
